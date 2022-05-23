@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import Header from './components/header.js';
 import AddContact from './components/add-contact.js';
 import ContactList from './components/contact-list.js';
+import EditContact from './components/edit-contact.js';
 import { v4 as uuid4 } from 'uuid';
 import {
   BrowserRouter,
@@ -12,7 +13,7 @@ import ContactDetail from './components/contact-detail.js';
 import api from "./api/contacts"
 
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts";
+
 const [contacts, setContacts] = useState([]);
 
 //get
@@ -33,9 +34,20 @@ useEffect(()=>{
 const addContactHandler = async (deliveredProps) => { 
 const request = {id:uuid4() , ...deliveredProps}
 const response = await api.post('/contacts', request);
-console.log(response)
   setContacts([...contacts, response.data])
 }
+
+//update
+const updateContacthandler =  async (deliveredProps) => { 
+  console.log(deliveredProps)
+  const response = await api.put(`/contacts/${deliveredProps.id}`, deliveredProps)
+const {id} = response.data;
+  console.log(response)
+
+    setContacts(contacts.map((contact)=>{
+      return contact.id===id ? {...response.data} : contact;
+    }))
+  }
 
 //delete
 const removeContactHandler = async (id) => {
@@ -55,13 +67,11 @@ const removeContactHandler = async (id) => {
       <Routes>
             <Route index element={<ContactList contacts={contacts} getContactId={removeContactHandler}/> }/>
             <Route path='/add' element={<AddContact addContactHandler={addContactHandler}/>}/>
+            <Route path='/edit' element={<EditContact updateContacthandler={updateContacthandler}/>}/>
             <Route path='/contact/:id' element={<ContactDetail />}/>
       </Routes>
 
       </BrowserRouter>
-
-      {/* <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts} getContactId={removeContactHandler}/> */}
     </div>
   );
 }

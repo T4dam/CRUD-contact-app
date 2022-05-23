@@ -1,19 +1,24 @@
 {
   "contacts": [
     {
-      "id": "28b3172f-edf4-4588-95cb-a9696db30232",
-      "name": "Serbentautas",
-      "email": "Serbis@gmail.com"
+      "id": "ee9affff-bb61-4033-a4cd-4e62e429ce81",
+      "name": "Jonas",
+      "email": "Jonauskas@gmail.com"
     },
     {
-      "id": "455b7ccc-6757-47b8-8b6e-0c8856b93206",
-      "name": "Jomantas",
-      "email": "keturkampagalvis@gmail.com"
+      "id": "5442d719-9db9-4c13-854e-82a91526c5b2",
+      "name": "Keturkampagalvis",
+      "email": "apvalauskas@gmail.com"
     },
     {
-      "id": "26f628a3-d906-4d4b-bcd9-cf1c4840c122",
-      "name": "Tadas",
-      "email": "tadauskas@gmail.com"
+      "id": "dbb947df-fa6f-49d2-8bb0-8b92bb17eb43",
+      "name": "Kolbaitis",
+      "email": "piltinas@gmail.com"
+    },
+    {
+      "id": "7a45aa5a-a4f3-4eea-aa85-3335be65bd04",
+      "name": "Uostė",
+      "email": "uostele99@gmail.com"
     }
   ]
 }
