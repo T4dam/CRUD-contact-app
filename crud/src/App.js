@@ -9,33 +9,42 @@ import {
   Route,
 } from "react-router-dom";
 import ContactDetail from './components/contact-detail.js';
-
+import api from "./api/contacts"
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
 const [contacts, setContacts] = useState([]);
 
-const addContactHandler = (deliveredProps) => { //gauna kontaktus per propsus iš vaikinio elemento add-contact per per propsus
-  setContacts([...contacts, {id:uuid4() , ...deliveredProps}])//...išlaiko esama kontaktu sąrašą ir prideda naujus.
+//get
+const retrieveContacts = async () => {
+  const response = await api.get("/contacts");
+  return response.data
+}
+useEffect(()=>{
+  const allContacts = async () => {
+    const allContacts = await retrieveContacts();
+    if(allContacts) setContacts(allContacts)
+  }
+  allContacts()
+},[])
+
+
+//post
+const addContactHandler = async (deliveredProps) => { 
+const request = {id:uuid4() , ...deliveredProps}
+const response = await api.post('/contacts', request);
+console.log(response)
+  setContacts([...contacts, response.data])
 }
 
-const removeContactHandler = (id) => {
+//delete
+const removeContactHandler = async (id) => {
+  await api.delete(`/contacts/${id}`)
   const newContactList = contacts.filter(item=>{
     return item.id !== id
   })
   setContacts(newContactList)
 }
-useEffect(()=>{
-  const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  if(retrieveContacts.length>0) setContacts(retrieveContacts);
-}, [])
-
-useEffect(()=>{
-  // if (contacts.length>0) {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  // }
-}, [contacts])
-
 
 
 
