@@ -1,0 +1,24 @@
+{
+    "contacts": [
+        {
+            "id": "28b3172f-edf4-4588-95cb-a9696db30232",
+            "name": "Serbentautas",
+            "email": "Serbis@gmail.com"
+        },
+        {
+            "id": "455b7ccc-6757-47b8-8b6e-0c8856b93206",
+            "name": "Jomantas",
+            "email": "keturkampagalvis@gmail.com"
+        },
+        {
+            "id": "26f628a3-d906-4d4b-bcd9-cf1c4840c122",
+            "name": "Tadas",
+            "email": "tadauskas@gmail.com"
+        },
+        {
+            "id": "29cd3ec8-e850-46b6-8c6b-d02ba5aa017d",
+            "name": "Cepelinas",
+            "email": "Cepelinukas69@gmail.com"
+        }
+    ]
+}
