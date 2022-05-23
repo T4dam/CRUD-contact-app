@@ -16,7 +16,7 @@ const ContactDetail = () => {
     const {email, name} = location.state.data
 
   return (
-    <div className='w-full h-auto mt-12'>
+    <div className='w-full h-auto mt-48'>
         <div className='flex justify-center'>
         <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>

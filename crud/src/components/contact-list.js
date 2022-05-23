@@ -23,7 +23,7 @@ const ContactList = (props) => {
         )
     })
   return (
-      <>
+      <div className='w-[600px] mx-auto mt-48'>
     <div className='mt-12 font-bold text-lg mb-4'>
       <div className="flex justify-between">
         <h2>Contact List</h2>
@@ -39,7 +39,7 @@ const ContactList = (props) => {
         {renderContactsList}
     </div>
 
-      </>
+      </div>
   )
 }
 

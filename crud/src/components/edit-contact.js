@@ -26,7 +26,7 @@ const EditContact = (props) => {
     
     // const {email, name} = location.state.data;
     return (
-    <div>
+    <div className='w-[600px] mx-auto mt-48'>
         <h2 className='text-lg font-bold my-3'>Edit Contact</h2>
         <form className='w-300 h-500' onSubmit={update}>
             <div>
