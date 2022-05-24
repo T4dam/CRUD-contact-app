@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='font-black text-3xl flex justify-center py-3 shadow-lg'>Contact form</div>
+    <div className='font-black text-3xl flex justify-center py-3 shadow-lg bg-slate-100'>Contact form</div>
   )
 }
 
